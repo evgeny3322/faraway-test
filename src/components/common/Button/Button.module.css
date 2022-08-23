@@ -1,0 +1,21 @@
+.button {
+    min-width: 100px;
+    padding: 10px 10px;
+    border-radius: 3px;
+    font-size: 18px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button:hover{
+    transition: all .4s;
+    background: gray;
+}
+.button:disabled,
+.button:disabled:hover {
+    color: gray;
+    background-color: transparent;
+    border-color: gray;
+    cursor: auto;
+}

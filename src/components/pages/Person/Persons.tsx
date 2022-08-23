@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {getApiResource, SWAPI_DEV_PEOPLE, SWAPI_DEV_PEOPLE_PAGE} from "../../api/api";
-import {getPeopleId, getPeopleImage} from "../../../services/getPeopleData";
+import {getPeopleId, getPeopleImage, getPeoplePageId} from "../../../services/getPeopleData";
 import PersonsList from "./PersonsList/PersonsList";
 import {withErrorApi} from "../../../hoc/WithErrorApi";
 import {useQueryParams} from "../../../hooks/useQueryParams";
+import PersonNavigation from "./PersonPagination/PersonPagination";
 
 export type PeopleListType = {
     id: string
@@ -19,7 +20,7 @@ const Persons = ({setErrorApi}: any) => {
 
     const query = useQueryParams();
     const queryPage = query.get('page')
-    console.log(queryPage)
+
     const getResource = async (url: string) => {
         const res = await getApiResource(url);
         if (res) {
@@ -36,6 +37,7 @@ const Persons = ({setErrorApi}: any) => {
             setPeople(peopleList)
             setPrevPage(res.previous)
             setNextPage(res.next)
+            setCounterPage(getPeoplePageId(url))
             setErrorApi(false)
         } else {
             setErrorApi(true)
@@ -51,6 +53,12 @@ const Persons = ({setErrorApi}: any) => {
 
     return (
         <div>
+            <PersonNavigation
+                getResource={getResource}
+                prevPage={prevPage}
+                nextPage={nextPage}
+                counterPage={counterPage}
+            />
             {people && (
                 <PersonsList people={people}/>
             )}
