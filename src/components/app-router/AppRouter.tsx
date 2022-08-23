@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import Person from "../pages/Person/Person";
+import Persons from "../pages/Person/Persons";
 import Description from "../pages/Description/Description";
 import NotFound from "../pages/NotFound/NotFound";
 import style from './AppRouter.module.css'
@@ -11,8 +11,8 @@ const AppRouter = () => {
         <div className={style.app}>
             <Header />
             <Routes>
-                    <Route index element={<Person/>}/>
-                    <Route path={'person'} element={<Person/>}/>
+                    <Route index element={<Persons/>}/>
+                    <Route path={'person'} element={<Persons/>}/>
                     <Route path={'/description'} element={<Description/>}/>
                     <Route path={'*'} element={<NotFound/>}/>
             </Routes>
