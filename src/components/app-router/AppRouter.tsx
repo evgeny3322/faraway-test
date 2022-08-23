@@ -5,17 +5,21 @@ import Description from "../pages/Description/Description";
 import NotFound from "../pages/NotFound/NotFound";
 import style from './AppRouter.module.css'
 import Header from "../header/Header";
+import Home from "../pages/Home/Home";
 
 const AppRouter = () => {
     return (
         <div className={style.app}>
-            <Header />
+            <Header/>
             <Routes>
-                    <Route index element={<Persons/>}/>
-                    <Route path={'/people'} element={<Persons/>}/>
-                    <Route path={'/description'} element={<Description/>}/>
-                    <Route path={'*'} element={<NotFound/>}/>
+                <Route path={'/'} element={<Home/>}/>
+                <Route path={'/home'} element={<Home/>}/>
+                <Route path={'/people'} element={<Persons/>}/>
+                <Route path={'/description'} element={<Description/>}/>
+                <Route path={'*'} element={<NotFound/>}/>
             </Routes>
+
+
         </div>
     );
 };

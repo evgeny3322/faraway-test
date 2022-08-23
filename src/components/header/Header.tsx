@@ -10,6 +10,10 @@ const Header = () => {
 
     return (
         <div className={style.header}>
+            <NavLink className={(NavData) => styleLinks(NavData)} to={'/home'}>
+                Home
+            </NavLink>
+
             <NavLink className={(NavData) => styleLinks(NavData)} to={'/people/?page=1'}>
                 Person
             </NavLink>
