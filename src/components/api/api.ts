@@ -1,5 +1,6 @@
 export const SWAPI_DEV = 'https://swapi.dev/api/';
 export const SWAPI_DEV_PEOPLE = SWAPI_DEV + 'people';
+export const SWAPI_DEV_PEOPLE_PAGE = SWAPI_DEV + 'people' + '/?page=';
 
 export const getApiResource = async (url: string) => {
     try {

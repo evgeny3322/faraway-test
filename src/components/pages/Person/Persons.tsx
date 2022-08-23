@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {getApiResource, SWAPI_DEV_PEOPLE} from "../../api/api";
+import {getApiResource, SWAPI_DEV_PEOPLE, SWAPI_DEV_PEOPLE_PAGE} from "../../api/api";
 import {getPeopleId, getPeopleImage} from "../../../services/getPeopleData";
 import PersonsList from "./PersonsList/PersonsList";
 import {withErrorApi} from "../../../hoc/WithErrorApi";
+import {useQueryParams} from "../../../hooks/useQueryParams";
 
 export type PeopleListType = {
     id: string
@@ -10,12 +11,15 @@ export type PeopleListType = {
     name: string
     url: string
 }
-const Persons = ({setErrorApi}:any) => {
+const Persons = ({setErrorApi}: any) => {
     const [people, setPeople] = useState(null);
     const [prevPage, setPrevPage] = useState(null);
     const [nextPage, setNextPage] = useState(null);
     const [counterPage, setCounterPage] = useState(1);
 
+    const query = useQueryParams();
+    const queryPage = query.get('page')
+    console.log(queryPage)
     const getResource = async (url: string) => {
         const res = await getApiResource(url);
         if (res) {
@@ -30,8 +34,10 @@ const Persons = ({setErrorApi}:any) => {
                 }
             });
             setPeople(peopleList)
+            setPrevPage(res.previous)
+            setNextPage(res.next)
             setErrorApi(false)
-        } else{
+        } else {
             setErrorApi(true)
         }
 
@@ -39,7 +45,7 @@ const Persons = ({setErrorApi}:any) => {
     }
 
     useEffect(() => {
-        getResource(SWAPI_DEV_PEOPLE);
+        getResource(SWAPI_DEV_PEOPLE_PAGE + queryPage)
     }, [])
 
 
