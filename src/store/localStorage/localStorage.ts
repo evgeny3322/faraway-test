@@ -8,6 +8,6 @@ export const getLocalStorage = (key:any) => {
     return {};
 }
 
-export const setLocalStorage = (key: any, data: any) => {
+export const setLocalStorage = (key: string, data: number) => {
     localStorage.setItem(key, JSON.stringify(data));
 }

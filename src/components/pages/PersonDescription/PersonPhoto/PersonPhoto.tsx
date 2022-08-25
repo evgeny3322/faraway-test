@@ -1,8 +1,8 @@
 import iconFavoriteFill from './img/favorite-fill.svg';
 import iconFavorite from './img/favorite.svg';
 import styles from './PersonPhoto.module.css';
-import {useDispatch} from "react-redux";
 import {removePersonFromFavorites, setPersonToFavorite} from "../../../../store/actions/actions";
+import {useAppDispatch} from "../../../../store/store";
 
 const PersonPhoto = ({
                          personId,
@@ -11,7 +11,7 @@ const PersonPhoto = ({
                          personFavorite,
                          setPersonFavorite
                      }:any) => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const dispatchFavoritePeople = () => {
         if (personFavorite) {

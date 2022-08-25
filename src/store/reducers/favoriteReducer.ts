@@ -1,14 +1,21 @@
-import { omit } from 'lodash';
+import {omit} from 'lodash';
 import {getLocalStorage} from "../localStorage/localStorage";
 import {ADD_PERSON_TO_FAVORITE, REMOVE_PERSON_FROM_FAVORITE} from "../constants/actionTypes";
+import {AppActionType} from "../actions/actions";
 
-const initialState = getLocalStorage('store');
+type initialStateType = {
+    key: string
+    date: number
+}
 
-const favoriteReducer = (state = initialState, action: any) => {
+const initialState: initialStateType = getLocalStorage('store');
+
+
+const favoriteReducer = (state:initialStateType = initialState, action: AppActionType) => {
     switch (action.type) {
         case ADD_PERSON_TO_FAVORITE:
             return {
-                ...state, 
+                ...state,
                 ...action.payload
             }
         case REMOVE_PERSON_FROM_FAVORITE: {

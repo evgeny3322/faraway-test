@@ -19,6 +19,10 @@ const Header = () => {
                 Person
             </NavLink>
 
+            <NavLink className={(NavData) => styleLinks(NavData)} to={'/search'}>
+                Search
+            </NavLink>
+
             <Favorite/>
 
         </div>
