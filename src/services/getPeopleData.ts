@@ -12,7 +12,10 @@ export const getPeoplePageId = (url: string) => {
     return Number(id);
 }
 
+
 export const getPeopleId = (url: string) => getId(url, 'people')
 
-export const getPeopleImage = (id: string) => `${'https://starwars-visualguide.com/assets/img/characters/'}/${id + '.jpg'}`;
+export const getPeopleImage = (id: string | undefined) => `${'https://starwars-visualguide.com/assets/img/characters/'}/${id + '.jpg'}`;
+
+
 

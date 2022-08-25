@@ -18,7 +18,5 @@ export const getApiResource = async (url: string) => {
     }
 }
 
-// export const changeHTTP = (url: string) => {
-//     return url ? url.replace(HTTP, HTTPS) : url;
-// }
+
 

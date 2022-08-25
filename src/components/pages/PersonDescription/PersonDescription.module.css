@@ -1,0 +1,15 @@
+.wrapper {
+    --color-name: violet;
+    margin-top: 45px;
+}
+.person__name {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}

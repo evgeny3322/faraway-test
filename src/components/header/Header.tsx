@@ -1,6 +1,7 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
 import style from "./Header.module.css"
+import Favorite from "./Favorite/Favorite";
 
 const Header = () => {
 
@@ -18,9 +19,8 @@ const Header = () => {
                 Person
             </NavLink>
 
-            <NavLink className={(NavData) => styleLinks(NavData)} to={'description'}>
-                Description
-            </NavLink>
+            <Favorite/>
+
         </div>
     );
 };

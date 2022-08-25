@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {getApiResource, SWAPI_DEV_PEOPLE, SWAPI_DEV_PEOPLE_PAGE} from "../../api/api";
+import {getApiResource, SWAPI_DEV_PEOPLE_PAGE} from "../../api/api";
 import {getPeopleId, getPeopleImage, getPeoplePageId} from "../../../services/getPeopleData";
 import PersonsList from "./PersonsList/PersonsList";
 import {withErrorApi} from "../../../hoc/WithErrorApi";
@@ -12,6 +12,7 @@ export type PeopleListType = {
     name: string
     url: string
 }
+
 const Persons = ({setErrorApi}: any) => {
     const [people, setPeople] = useState(null);
     const [prevPage, setPrevPage] = useState(null);
@@ -62,7 +63,6 @@ const Persons = ({setErrorApi}: any) => {
             {people && (
                 <PersonsList people={people}/>
             )}
-
         </div>
     );
 };
