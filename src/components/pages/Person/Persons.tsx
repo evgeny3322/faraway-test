@@ -14,7 +14,7 @@ export type PeopleListType = {
 }
 
 const Persons = ({setErrorApi}: any) => {
-    const [people, setPeople] = useState(null);
+    const [people, setPeople] = useState<string>();
     const [prevPage, setPrevPage] = useState(null);
     const [nextPage, setNextPage] = useState(null);
     const [counterPage, setCounterPage] = useState(1);

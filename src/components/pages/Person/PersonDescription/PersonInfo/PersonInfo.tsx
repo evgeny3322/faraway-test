@@ -1,12 +1,18 @@
 import styles from './PersonInfo.module.css';
 import React from "react";
+import {PersonInfoType} from "../PersonDescription";
 
-const PersonInfo = ({ personInfo,personName }:any) => (
+type PersonInfoPageType = {
+    personInfo: PersonInfoType[]
+    personName: string
+}
+
+const PersonInfo = ({personInfo, personName}: PersonInfoPageType) => (
     <>
         <div className={styles.wrapper}>
             <span className={styles.person__name}>{personName}</span>
             <ul className={styles.list__container}>
-                {personInfo.map(({ title, data }:any) => (
+                {personInfo.map(({title, data}: any) => (
                     data && (
                         <li className={styles.list__item} key={title}>
                             <span className={styles.item__title}>{title}</span>: {data}
@@ -17,7 +23,6 @@ const PersonInfo = ({ personInfo,personName }:any) => (
         </div>
     </>
 )
-
 
 
 export default PersonInfo;

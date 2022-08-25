@@ -7,15 +7,20 @@ import SearchInfo from "./SearchInfo/SearchInfo/SearchInfo";
 import {withErrorApi} from "../../../hoc/WithErrorApi";
 import Input from "../../common/Input/Input";
 
+type PeopleListType = {
+    name: string
+    url: string
+}
+
 const SearchPage = ({setErrorApi}: any) => {
     const [inputSearchValue, setInputSearchValue] = useState('');
     const [people, setPeople] = useState([]);
 
-    const getResponse = async (param: any) => {
+    const getResponse = async (param: string) => {
         const res = await getApiResource('https://swapi.dev/api/people/?search=' + param);
 
         if (res) {
-            const peopleList = res.results.map(({name, url}: any) => {
+            const peopleList = res.results.map(({name, url}: PeopleListType) => {
                 const id = getPeopleId(url);
                 const img = getPeopleImage(id);
 

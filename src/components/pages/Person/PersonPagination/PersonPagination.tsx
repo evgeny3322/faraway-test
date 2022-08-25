@@ -3,13 +3,13 @@ import styles from './PersonPagination.module.css';
 import Button from "../../../common/Button/Button";
 
 type PeopleNavigationType = {
-    getResource: () => void
+    getResource: (prevPage:string) => void
     prevPage: string
     nextPage: string
     counterPage: number
 }
 
-const PersonNavigation = ({getResource, prevPage, nextPage, counterPage}:any) => {
+const PersonNavigation = ({getResource, prevPage, nextPage, counterPage}:PeopleNavigationType | any) => {
 
     const handleChangeNext = () => getResource(nextPage);
     const handleChangePrev = () => getResource(prevPage);

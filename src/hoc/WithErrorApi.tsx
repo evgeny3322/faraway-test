@@ -3,7 +3,7 @@ import ErrorMessage from "../components/pages/ErrorMessage/ErrorMessage";
 
 export const withErrorApi = (View: ({setErrorApi}: any) => JSX.Element) => {
     return (({props}:any) => {
-        const [errorApi, setErrorApi] = useState(false);
+        const [errorApi, setErrorApi] = useState<boolean>(false);
 
         return (
             <>

@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import icon from './img/bookmark.svg';
 import styles from './Favorite.module.css';
 import {useAppSelector} from "../../../store/store";

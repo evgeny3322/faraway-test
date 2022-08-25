@@ -5,7 +5,7 @@ export type ActionsType = {
     payload: string
 }
 
-export const setPersonToFavorite = (person: { [p: number]: { img: any; name: any } }) => ({type: ADD_PERSON_TO_FAVORITE, payload: person} as const)
+export const setPersonToFavorite = (person: { [p: number]: { img: string; name: string } }) => ({type: ADD_PERSON_TO_FAVORITE, payload: person} as const)
 
 export const removePersonFromFavorites = (personId:string) => ({type: REMOVE_PERSON_FROM_FAVORITE,  payload: personId} as const)
 

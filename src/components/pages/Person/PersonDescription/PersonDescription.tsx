@@ -1,31 +1,36 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import styles from './PersonDescription.module.css';
-import {getPeopleImage} from "../../../services/getPeopleData";
-import {getApiResource} from "../../api/api";
-import {withErrorApi} from "../../../hoc/WithErrorApi";
+import {getPeopleImage} from "../../../../services/getPeopleData";
+import {getApiResource} from "../../../api/api";
+import {withErrorApi} from "../../../../hoc/WithErrorApi";
 import PersonInfo from "./PersonInfo/PersonInfo";
 import PersonPhoto from "./PersonPhoto/PersonPhoto";
-import PersonBackLink from "../Person/PersonBackLink/PersonBackLink";
-import {useSelector} from "react-redux";
+import PersonBackLink from "../PersonBackLink/PersonBackLink";
+import {useAppSelector} from "../../../../store/store";
+
+export type PersonInfoType = {
+    title: string
+    data: string
+}
 
 
 const PersonDescription = ({setErrorApi}: any) => {
     const [personId, setPersonId] = useState<string | undefined>('');
-    const [personInfo, setPersonInfo] = useState<any>(null);
+    const [personInfo, setPersonInfo] = useState<PersonInfoType[]>([]);
     const [personName, setPersonName] = useState<string>('');
     const [personPhoto, setPersonPhoto] = useState<string>('');
     const [personFilms, setPersonFilms] = useState(null);
-    const [personFavorite, setPersonFavorite] = useState(false);
+    const [personFavorite, setPersonFavorite] = useState<boolean>(false);
 
-    // @ts-ignore
-    const storeData = useSelector(state => state.favoriteReducer);
+    const storeData = useAppSelector(state => state.favoriteReducer);
 
-    const {id} = useParams();
+    const {id}:any = useParams();
 
 
     useEffect(() => {
         (async () => {
+            setPersonFavorite(!!storeData[id]);
             setPersonId(id);
 
             const res = await getApiResource(`${`https://swapi.dev/api/people`}/${id}/`);

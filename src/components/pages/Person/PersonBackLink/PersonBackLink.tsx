@@ -17,7 +17,7 @@ const PersonBackLink = () => {
             className={styles.link}
         >
             <img className={styles.link__img} src={iconBack} alt="Go back" />
-            <span>Go back</span>
+            <span className={styles.link__text}>Go back</span>
         </a>
     )
 }

@@ -18,3 +18,9 @@ code {
 li{
   list-style-type:none ;
 }
+
+a{
+  color: #052291;
+  font-weight: bolder;
+  text-decoration: none;
+}

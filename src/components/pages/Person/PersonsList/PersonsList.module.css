@@ -1,10 +1,11 @@
 .personsList {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .personsList__item {
-    margin: 0 10px 10px;
+    margin: 0 20px 10px;
     padding: 10px;
     background-color: #ffff;
     border-radius: 10%;
@@ -14,8 +15,9 @@
     width: 100%;
     height: 300px;
     border-radius: 10%;
+    text-decoration: none;
 }
-/*.personsList__img:hover{*/
-/*    padding: 2px;*/
-/*    transition: all .2s;*/
-/*}*/
+
+.personsList__text{
+    text-decoration: none;
+}
